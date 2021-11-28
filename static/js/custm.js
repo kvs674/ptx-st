@@ -20,7 +20,7 @@
                $('body').css('background','#000000');
                $('#pc-color-bg').css('background','#000000');
                $('.header').css('background','#202020');
-               $('.search .search-text input').css('background','#000000');
+               $('.search .search-text input').css('background','#dadada');
                $('.search .search-button').css('background-color','#000000');
                $('#login,.username, .comment-text').css('color','#dadada');
                $('.container').css('background','#202020');
