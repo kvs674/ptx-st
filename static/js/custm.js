@@ -5,22 +5,18 @@
         localStorage.setItem("checked", JSON.stringify(arr));
         location.reload();
     }
-
     $(document).ready(function() {
         let checked;
         var arr = JSON.parse(localStorage.getItem('checked')) || [];
         arr.forEach(function(checked, i) {
             $('#checkbox').eq(i).prop('checked', checked);
         });
-
         $("#checkbox").click(onClickBox);
-
-            if (arr[0]==true) {
-                
+            if (arr[0]==true) {  
                $('.tags-cloud a').css({'background-color':'#303030','color':'#dadada'});
                $('.pornstar-thumb-container .item').css({'background-color':'#202020'});
                $('.pornstars-lister').css({'background-color':'#101010'});
-               $("#sun-img").attr("src","{{$config.statics_url}}/static/images/dark_sun.png");
+               $("#sun-img").attr("src","https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/dark_sun.png");
                $('body').css('background','#000000');
                $('#pc-color-bg').css('background','#000000');
                $('.header').css('background','#202020');
@@ -47,7 +43,7 @@ if($(window).width() <= 1152){
                $('.navigation .button .ico-bar').css('background','#dadada');
                $('.pagination .page-current span').css({'color':'#303030','background-color':'#dadada'});
                $('.pagination a').css({'color':'#dadada','background-color':'#303030'});
-               $('#logo-changer').attr('src','{{$config.statics_url}}/static/images/hamsterx-w.png');
+               $('#logo-changer').attr('src','https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/hamsterx-w.png');
                $('.no-touch .navigation-main .primary a').hover(function(e) {
   $(this).css("background-color",e.type === "mouseenter"?"#202020":"transparent")
 });
@@ -71,7 +67,7 @@ setTimeout(function(){
 }, 600);});
 
             } else {
-               $("#moon-img").attr("src","{{$config.statics_url}}/static/images/dark_moon.png");
+               $("#moon-img").attr("src","https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/dark_moon.png");
                
             }
     });
@@ -160,46 +156,46 @@ $('.languagebox, .language-list, .navigation').on('click', function(e){
           
 const value = $.cookie("kt_lang"); 
 
-$('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/gb.gif)');
+$('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/gb.gif)');
 
 if(value=='ru'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/ru.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/ru.gif)');
   $('.lang-text-mob').text('Русский');
 }
 if(value=='en'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/gb.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/gb.gif)');
   $('.lang-text-mob').text('English');
 }
 if(value=='de'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/de.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/de.gif)');
   $('.lang-text-mob').text('Deutsch');
 }
 if(value=='fr'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/fr.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/fr.gif)');
   $('.lang-text-mob').text('Français');
 }
 if(value=='it'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/it.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/it.gif)');
   $('.lang-text-mob').text('Italiano');
 }
 if(value=='es'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/es.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/es.gif)');
   $('.lang-text-mob').text('Español');
 }
 if(value=='pl'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/pl.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/pl.gif)');
   $('.lang-text-mob').text('Polski');
 }
 if(value=='pt'){
-  $('.xh-button').css('background-image','url(/static/images/flags/pt.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/pt.gif)');
   $('.lang-text-mob').text('Português');
 }
 if(value=='nl'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/nl.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/nl.gif)');
   $('.lang-text-mob').text('Nederlands');
 }
 if(value=='ja'){
-  $('.xh-button').css('background-image','url({{$config.statics_url}}/static/images/flags/jp.gif)');
+  $('.xh-button').css('background-image','url(https://cdn.jsdelivr.net/gh/kvs674/ptx-st@3.1.1/static/images/flags/jp.gif)');
   $('.lang-text-mob').text('日本語');
 }
 
