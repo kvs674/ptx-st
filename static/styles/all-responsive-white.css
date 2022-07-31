@@ -6818,9 +6818,20 @@ div.top img {
 .no-touch .block-details .block-user a.avatar:hover {
     opacity: 0.7;
 }
-
-.block-details .block-user .avatar img,
 .block-details .block-user .avatar .no-thumb {
+	display: block;
+	height: 4rem;
+	width: 4rem;
+	background-size: contain;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	line-height: 38px;
+	text-transform: capitalize;
+	text-shadow: -1px -1px 2px #020634, 1px 1px 2px #020634;
+}
+
+.block-details .block-user .avatar img {
     display: block;
     height: 4rem;
     width: 4rem;
@@ -7736,7 +7747,7 @@ div.top img {
 
 .list-channels .img {
     overflow: unset !important;
-    padding: 0 !important;
+    padding-bottom: 56.25%;
 }
 
 /* popups */
