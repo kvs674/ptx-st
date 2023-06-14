@@ -77,16 +77,9 @@
 }
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-	background-repeat: no-repeat;
-	background-size: 20px;
-	background-image: url(../images/fancybox/cross.png);
+	background-image: url('../images/fancybox/fancybox_sprite.png');
 }
-.fancybox-close:hover{
-	background-repeat: no-repeat;
-	background-size: 20px;
-	background-image: url(../images/fancybox/cross.png);
-	color: #e34449;
-}
+
 #fancybox-loading {
 	position: fixed;
 	top: 50%;
@@ -271,8 +264,8 @@
 	only screen and (min-device-pixel-ratio: 1.5){
 
 	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-		background-image: url('../images/fancybox/cross.png');
-		background-size: 20px; /*The size of the normal image, half the size of the hi-res image*/
+		background-image: url('../images/fancybox/fancybox_sprite@2x.png');
+		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
 	}
 
 	#fancybox-loading div {

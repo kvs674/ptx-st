@@ -374,11 +374,22 @@ $(document).ready(function () {
 							} else if (response['redirect']) {
 								window.location = response['redirect'];
 							} else {
-								var $reloader = $('[data-reload-to]');
-								if ($reloader.exists()) {
-									window.location = $reloader.attr('data-reload-to');
+								if ($form.attr('data-success') == 'message' && $form.attr('data-message')) {
+									$.fancybox('<form><div class="success">' + $form.attr('data-message') + '</div></form>', {
+										topRatio: 0.3,
+
+										beforeClose: function() {
+											window.location.reload();
+											return true;
+										}
+									});
 								} else {
-									window.location.reload();
+									var $reloader = $('[data-reload-to]');
+									if ($reloader.exists()) {
+										window.location = $reloader.attr('data-reload-to');
+									} else {
+										window.location.reload();
+									}
 								}
 							}
 						} else {
@@ -404,6 +415,15 @@ $(document).ready(function () {
 										} else {
 											window.location.reload();
 										}
+										return true;
+									}
+								});
+							} else if ($form.attr('data-success') == 'message' && $form.attr('data-message')) {
+								$.fancybox('<form><div class="success">' + $form.attr('data-message') + '</div></form>', {
+									topRatio: 0.3,
+
+									beforeClose: function() {
+										window.location.reload();
 										return true;
 									}
 								});
@@ -701,6 +721,16 @@ $(document).ready(function () {
 
 		var utilitiesAjaxFancyBox = function ($sender, url, afterShowCallback) {
 			$.fancybox([{href: url, type: 'ajax'}], {
+				afterLoad: function(arg1) {
+					if (arg1 && typeof arg1.content == 'string') {
+						if (arg1.content.indexOf('<body>') >= 0 && arg1.content.indexOf('</body>') >= 0) {
+							window.location = url;
+							return false;
+						}
+					}
+					return true;
+				},
+
 				afterShow: function() {
 					if (!afterShowCallback) {
 						this.inner.find('[data-form="ajax"]').each(function () {
@@ -887,6 +917,9 @@ $(document).ready(function () {
 
 			if (window.location.href.indexOf('?login') > 0) {
 				$('#login').click();
+			}
+			if (window.location.href.indexOf('?signup') > 0) {
+				$('#signup').click();
 			}
 		};
 
@@ -1340,8 +1373,10 @@ $(document).ready(function () {
 				$container.find('img[data-preview]').videopreview();
 			}
 
-			$container.find('[data-action="ajax"]').click(function (e) {
-				e.preventDefault();
+			$container.find('[data-action="ajax"], [data-action="inputpage"]').on('click keydown', function (e) {
+				if (e.type == 'click') {
+					e.preventDefault();
+				}
 
 				var args = {};
 				var $sender = $(this);
@@ -1369,6 +1404,21 @@ $(document).ready(function () {
 				}
 
 				var params = utilitiesParseParameters($sender.attr('data-parameters'));
+
+				if ($sender.is('input')) {
+					if (e.type == 'click') {
+						return;
+					}
+					if (e.keyCode != 13 && e.key != 'Enter' && e.key != 'enter') {
+						return;
+					}
+					var paginationVar = $sender.attr('data-pagination-var');
+					var paginationValue = parseInt($sender.val());
+					if (!paginationVar || !paginationValue) {
+						return;
+					}
+					params[paginationVar] = paginationValue;
+				}
 
 				var userId = '';
 				if (pageContext && pageContext['userId']) {
